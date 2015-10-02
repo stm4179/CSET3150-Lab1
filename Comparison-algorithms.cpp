@@ -101,16 +101,16 @@ void outputArray(int*array, int arraylength, char*outType ){
 
 void insertionsort(int *a, int count){
 	//insertion sort of numberarray[]
-		int j, temp;
-		for (int i = 0;i<count;i++){
-			j = i;
-			while (j>0 && a[j-1] > a[j]){
-				temp = a[j];
-				a[j] = a[j-1];
-				a[j-1]=temp;
-				j--;
-			}
+	int j, temp;
+	for (int i = 0;i<count;i++){
+		j = i;
+		while (j>0 && a[j-1] > a[j]){
+			temp = a[j];
+			a[j] = a[j-1];
+			a[j-1]=temp;
+			j--;
 		}
+	}
 }
 void merge(int *a, int *b, int low, int middle, int high){
 
