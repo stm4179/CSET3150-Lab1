@@ -48,13 +48,13 @@ int main(int atgc, char*argv[]){
 void arraylength(int*count, char*b, bool*errorchk){
 	fstream txtfile(b);
 	if (txtfile.is_open()){
-	int temp, tempcount=0;
-	while (!txtfile.eof()){
-		txtfile >> temp;
-		tempcount++;
-			}
-	*count = tempcount;
-	txtfile.close();
+		int temp, tempcount=0;
+		while (!txtfile.eof()){
+			txtfile >> temp;
+			tempcount++;
+		}
+		*count = tempcount;
+		txtfile.close();
 	}
 	else {
 		*errorchk = false;
@@ -64,16 +64,16 @@ void arraylength(int*count, char*b, bool*errorchk){
 }
 void inputArray(int*array,char*filename){
 	fstream txtfile(filename);
-			if (txtfile.is_open()){
-				int i=0;
-				while (!txtfile.eof()){
-					txtfile >> array[i];
-					i++;
-				}
-			}
-			else {
-				error(1);
-			}
+	if (txtfile.is_open()){
+		int i=0;
+		while (!txtfile.eof()){
+			txtfile >> array[i];
+			i++;
+		}
+	}
+	else {
+		error(1);
+	}
 	txtfile.close();
 }
 void outputArray(int*array, int arraylength, char*outType ){
@@ -92,12 +92,12 @@ void outputArray(int*array, int arraylength, char*outType ){
 				sortedtxt<<array[i]<<endl;
 		}
 		return;
-    }
+	}
 	else{
 		error(3);
 	}
     	sortedtxt.close();
-	}
+}
 
 void insertionsort(int *a, int count){
 	//insertion sort of numberarray[]
@@ -179,10 +179,9 @@ void quicksort(int *A, int p, int r){
 	int q;
 	if (p<r){
 		q = partion(A, p, r);
-    	quicksort(A,p,q-1);
-    	quicksort(A,q+1,r);
-
-    }
+    		quicksort(A,p,q-1);
+    		quicksort(A,q+1,r);
+    	}
 }
 void countsort(int *A, int *B,int count, int highest){
 	int C[highest];
@@ -197,7 +196,6 @@ void countsort(int *A, int *B,int count, int highest){
 	for (int i = 1; i < highest; i++){
 		C[i] = C[i] + C[i-1];
 		cout << C[i]<< endl;
-
 	}
 	for (int i = (count-1); i > -1; --i){
 		B[C[A[i]]] = A[i];
